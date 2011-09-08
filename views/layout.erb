@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Life Dashboard</title>
+	<link href="/style.css" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=500, user-scalable=yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<script src="/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/date.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+  <div id="fb-root"></div>
+  <script src="http://connect.facebook.net/en_US/all.js"></script>
+  <script type="text/javascript" charset="utf-8">
+		FB.init({ 
+			appId: '269814433046850',
+			cookie: true, 
+			status: true,
+			xfbml: true,
+			oauth: true
+		});
+		FB.getLoginStatus(function(response) {
+		  if (response.status != 'connected') {
+			 FB.login(function(response) {
+			   if (response.authResponse) {
+			     console.log('FACEBOOK: Logged in');
+			   } else {
+			     console.log('User cancelled login or did not fully authorize.');
+			   }
+			 }, {scope: 'user_events,friends_birthday,read_mailbox'});
+		  }
+			else {
+				console.log('FACEBOOK: Logged in');
+				FB.api('/me/events', function(response) {
+					console.log(response.data);
+					for (var i = 0; i < response.data.length; i++) {
+						date = new Date ();
+						date.setISO8601(response.data[i].start_time + ".00-09:00");
+						console.log(date);
+						if (date.isToday()) {
+							$("#today .events").show();
+							$("ul.events.today").append("<li>" + response.data[i].name + "</li>");
+						}
+						if (date.isTomorrow()) {
+							$("#tomorrow .events").show();
+							$("ul.events.tomorrow").append("<li>" + response.data[i].name + "</li>");
+						}
+						if (date.isLater()) {
+							$("#later .events").show();
+							$("ul.events.later").append("<li>" + response.data[i].name + " (" + date.getMonth() + "/" + date.getDate() + ")</li>");
+						}
+					};
+				});
+				FB.api('me/threads', function(response) {
+					for (var i = 0; i < response.data.length; i++) {
+						if (response.data[i].tags.data[1].name != "read" && response.data[i].tags.data[1].name != "inbox") {
+							$('#unread').show();
+							$('#unread').append('<a href="https://facebook.com/messages">You have unread messages on <b>Facebook</b></a>');
+							break;
+						}
+					};
+				});
+			}
+		});
+	</script>
+
+	<%= yield %>
+	
+	<div id="footer">
+	</div>
+	
+</body>
+</html>

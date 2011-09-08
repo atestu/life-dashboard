@@ -1,0 +1,265 @@
+/* @override 
+	http://life.dev/style.css
+	http://localhost:4567/style.css
+*/
+
+/* @group 1140px */
+
+/* CSS Resets */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,q,small,strong,sub,sup,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;margin:0;padding:0}article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object{display:block}a img{border:0}figure{position:relative}figure img{width:100%}
+
+
+/* ==================================================================================================================== */
+/* ! The 1140px Grid V2 by Andy Taylor \ http://cssgrid.net \ http://www.twitter.com/andytlr \ http://www.andytlr.com   */
+/* ==================================================================================================================== */
+
+.container {
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.row {
+width: 100%;
+max-width: 1140px;
+min-width: 755px;
+margin: 0 auto;
+overflow: hidden;
+}
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol {
+margin-right: 3.8%;
+float: left;
+min-height: 1px;
+}
+
+.row .onecol {
+width: 4.85%;
+}
+
+.row .twocol {
+width: 13.45%;
+}
+
+.row .threecol {
+width: 22.05%;
+}
+
+.row .fourcol {
+width: 30.75%;
+}
+
+.row .fivecol {
+width: 39.45%;
+}
+
+.row .sixcol {
+width: 48%;
+}
+
+.row .sevencol {
+width: 56.75%;
+}
+
+.row .eightcol {
+width: 65.4%;
+}
+
+.row .ninecol {
+width: 74.05%;
+}
+
+.row .tencol {
+width: 82.7%;
+}
+
+.row .elevencol {
+width: 91.35%;
+}
+
+.row .twelvecol {
+width: 100%;
+float: left;
+}
+
+.last {
+margin-right: 0px;
+}
+
+img, object, embed {
+max-width: 100%;
+}
+
+img {
+	height: auto;
+}
+
+
+/* Smaller screens */
+
+@media only screen and (max-width: 1023px) {
+
+	body {
+	font-size: 0.8em;
+	line-height: 1.5em;
+	}
+	
+	}
+
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+	font-size: 16px;
+	-webkit-text-size-adjust: none;
+	}
+	
+	.row, body, .container {
+	width: 100%;
+	min-width: 0;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	}
+	
+	.row .onecol, .row .twocol, .row .threecol, .row .fourcol, .row .fivecol, .row .sixcol, .row .sevencol, .row .eightcol, .row .ninecol, .row .tencol, .row .elevencol, .row .twelvecol {
+	width: auto;
+	float: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	}
+
+}
+
+/* @end */
+
+
+body {
+	font-family: "Helvetica Neue", "Helvetica", Arial, Helvetica, Geneva, sans-serif;
+}
+
+#today {
+	position: relative;
+	background: url(http://l.yimg.com/a/i/us/nws/weather/gr/30d.png) no-repeat 100px -15px;
+}
+
+#omnifocus {
+	float: right;
+}
+
+#omnifocus p {
+	display: inline;
+	vertical-align: 14px;
+	margin-left: 5px;
+}
+
+#omnifocus img {
+	height: 40px;
+}
+
+#today, #tomorrow, #later {
+	padding-top: 20px;
+	border-top: 3px solid;
+	margin-bottom: 20px;
+}
+
+h1 {
+	margin-bottom: 20px;
+	border-bottom: 1px solid silver;
+	padding-bottom: 20px;
+}
+
+#today, #today a, #today a:visited {
+	color: #0B486B;
+}
+
+#tomorrow {
+	color: #3B8686;
+}
+
+#later {
+	color: #79BD9A;
+}
+
+.module {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.events {
+	display: none;
+	font-weight: bold;
+}
+
+h2 {
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	margin-bottom: 10px;
+}
+
+ul {
+	list-style: none;
+}
+
+ul.gcal li {
+	margin: 20px 0px;
+	font-weight: bold;
+}
+
+span {
+	float: right;
+	display: block;
+	font-weight: normal;
+	font-style: normal;
+}
+
+ul.events {
+	
+}
+
+#unread {
+	display: none;
+	padding: 10px;
+	color: #fff;
+	background-color: #0B486B;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#unread a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.deal {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid silver;
+}
+
+.deal a {
+	opacity: .4;
+}
+
+.deal a:hover {
+	opacity: 1;
+}
+
+#footer {
+	color: silver;
+	margin-top: 100px;
+}
+
+#footer a {
+	color: silver;
+}
+
+#footer a:hover {
+	color: gray;
+}

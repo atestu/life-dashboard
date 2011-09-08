@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="fivecol" id="today">
+		<a id="omnifocus" href="omnifocus:///folder/l6hehKlSWYt"><img src="/omnifocus.png" /><p>Open Omnifocus</p></a>
+			<h1>Today</h1>
+			<ul class="gcal">
+				<% @todayArray.each do |event| %>
+					<li><span>at <%= event['date'][:hour] %>:<%= event['date'][:min] %></span><%= event['title'] %></li>
+				<% end %>
+			</ul>
+			<div class="module events">
+				<ul class="events today"></ul>
+			</div>
+			<div id="unread">
+				
+			</div>
+			<div class="deal">
+				<%= @dealoftheday %>
+			</div>
+		</div>
+		<div class="fourcol" id="tomorrow">
+			<h1>Tomorrow</h1>
+			<ul class="gcal">
+				<% @tomorrowArray.each do |event| %>
+					<li><span>at <%= event['date'][:hour] %>:<%= event['date'][:min] %></span><%= event['title'] %></li>
+				<% end %>
+			</ul>
+			<div class="module events">
+				<ul class="events tomorrow"></ul>
+			</div>
+		</div>
+		<div class="threecol last" id="later">
+			<h1>Later</h1>
+			<ul class="gcal">
+				<% @laterArray.each do |event| %>
+					<li><%= event['title'] %></li>
+				<% end %>
+			</ul>
+			<div class="module events">
+				<ul class="events later"></ul>
+			</div>
+		</div>
+	</div>
+</div>
