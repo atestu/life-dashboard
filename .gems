@@ -1,6 +1,6 @@
 sinatra
 hpricot
-rest-open-uri
+open-uri
 json
 xml-simple
 rest-client
