@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'hpricot'
-require 'open-uri'
+require 'rest-open-uri'
 require 'rest-client'
 require 'json'
 require 'net/http'
